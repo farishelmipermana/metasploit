@@ -1,0 +1,13 @@
+use auxiliary/scanner/portscan/tcp
+Info
+set RHOSTS <target>
+set PORTS 1-1024
+run
+
+info auxiliary/scanner/smb/smb_version 
+use auxiliary/scanner/smb/smb_version
+set RHOSTS <target>
+run
+hosts
+services
+services -u
